@@ -1,5 +1,5 @@
 # svelte-starter-kit
-> Simple Svelte starter kit boilerplate based on Webpack, SASS and Bootstrap 5 (alpha)
+> Simple Svelte starter kit boilerplate based on Webpack and SASS.
 
 ## How to use
 Just clone the project in a new folder:
@@ -35,7 +35,7 @@ Youn can change the notifications title by editing the `displayName` field in th
  "displayName": "Svelte starter kit",
 ```
 
-per modificare la porta su cui avviare il dev-server di Webpack e la cartella in cui generare i file pubblicabili, basta modificare le relative costanti nel file `webpack.config.js`:
+you can also update the development server port and build folder in the `webpack.config.js` file:
 
 ```javascript
 const dist = './dist';
