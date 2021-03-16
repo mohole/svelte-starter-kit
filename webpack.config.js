@@ -2,6 +2,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const SveltePreprocess = require('svelte-preprocess');
 const pkg = require('./package.json');
 
@@ -23,6 +25,7 @@ module.exports = {
     chunkFilename: 'bundle.[chunk].js'
   },
   plugins: [
+    new MiniCssExtractPlugin({ filename: "[name].[chunkhash].css" }),
     new WebpackNotifierPlugin({
       title: pkg.displayName,
       alwaysNotify: true
@@ -41,6 +44,12 @@ module.exports = {
     mainFields: ['svelte', 'browser', 'module', 'main']
   },
   devtool: 'source-map',
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new CssMinimizerPlugin(),
+    ],
+  },
   module: {
     rules: [
       {
@@ -93,6 +102,14 @@ module.exports = {
             })
           }
         }
+      },
+      {
+        test: [/\.s[ac]ss$/i, /\.css$/],
+        use: [
+          isProd ? MiniCssExtractPlugin.loader : "style-loader",
+          "css-loader",
+          "sass-loader"
+        ],
       },
       {
         // required to prevent errors from Svelte on Webpack 5+, omit on Webpack 4
