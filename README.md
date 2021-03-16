@@ -1,10 +1,10 @@
-# frontend-starter-kit
-> Simple starter kit boilerplate based on Webpack, SASS and Bootstrap 5 (alpha)
+# svelte-starter-kit
+> Simple Svelte starter kit boilerplate based on Webpack, SASS and Bootstrap 5 (alpha)
 
 ## How to use
 Just clone the project in a new folder:
 ```bash
-git clone https://github.com/mohole/frontend-starter-kit my-new-project
+git clone https://github.com/mohole/svelte-starter-kit my-new-project
 ```
 
 install dependencies
@@ -28,11 +28,11 @@ npm run build
 
 the result will be available in the `./dist` folder.
 
-## Customizzazioni
-Per cambiare il titolo delle notifiche e della pagina, modificare il campo `displayName` nel file `package.json`:
+## Customizations
+Youn can change the notifications title by editing the `displayName` field in the `package.json` file:
 
 ```json
- "displayName": "Mohole frontend starter kit",
+ "displayName": "Svelte starter kit",
 ```
 
 per modificare la porta su cui avviare il dev-server di Webpack e la cartella in cui generare i file pubblicabili, basta modificare le relative costanti nel file `webpack.config.js`:
@@ -42,5 +42,5 @@ const dist = './dist';
 const port = 8080;
 ```
 
-## Licenza
+## License
 Release under the [MIT license](LICENSE).
